@@ -1,3 +1,4 @@
+Sys.setenv(LANGUAGE="en")
 
 # Exercise 1 (Tossing & Counting) --------------------------------------------------------------
 
