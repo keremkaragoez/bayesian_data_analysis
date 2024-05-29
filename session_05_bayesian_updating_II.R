@@ -185,7 +185,13 @@ estimation %>%
 #  dark_theme()
 #ggsave("materials/plots/session_04_hpid50.png", height = 5, width = 6)
 
-# 80 % 
+# 80 %
+#install.packages("devtools") # if you don't have devtools installed
+# we recommend running this is a fresh R session or restarting your current session
+#install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
+library(devtools)
+#devtools::install_github("rmcelreath/rethinking")
+library(rethinking)
 HPDI_lower <- HPDI(posterior_samples, .80)[1]
 HPDI_upper <- HPDI(posterior_samples, .80)[2]
 

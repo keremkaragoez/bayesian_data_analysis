@@ -66,8 +66,8 @@ n <- 9
 data <- sim_tosses(n, p = .5)
 
 # compute posterior
-
-candidates <- tibble(cp = seq(0,1,.1) , prior = rep(1/length(cp), length(cp)))
+library(tibble)
+candidates <- tibble(cp = seq(0,1,.125) , prior = rep(1/length(cp), length(cp)))
 estimation <- compute_post(data, candidates, n)
 estimation
 
@@ -75,6 +75,7 @@ estimation
 # check results
 
 #source("code/.R/dark_theme.R")
+library(ggplot2)
 estimation %>% 
   pivot_longer(cols = c(prior,post), names_to = "type", values_to = "probability") %>% # transform tata
   ggplot(aes(x=cp, y = probability, color = type, linetype = type)) + 
